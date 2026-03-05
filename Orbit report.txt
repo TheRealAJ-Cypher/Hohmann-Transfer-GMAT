@@ -1,0 +1,58 @@
+******  Changes made to the mission will not be reflected ******
+******  in the data displayed until the mission is rerun  ******
+
+        Report Command: OrbitReport
+        Spacecraft       : LEO_Sat
+        Coordinate System: EarthMJ2000Eq
+
+        Time System   Gregorian                     Modified Julian  
+        ----------------------------------------------------------------------    
+        UTC Epoch:    01 Jan 2000 21:42:55.111      21545.4048045238
+        TAI Epoch:    01 Jan 2000 21:43:27.111      21545.4051748942
+        TT  Epoch:    01 Jan 2000 21:43:59.295      21545.4055473942
+        TDB Epoch:    01 Jan 2000 21:43:59.295      21545.4055473935
+
+        Cartesian State                       Keplerian State
+        ---------------------------           -------------------------------- 
+        X  =  -14909.721916306 km             SMA  =   14975.946506783 km
+        Y  =  -1201.1251696476 km             ECC  =   0.0012356147900
+        Z  =   0.0078775447834 km             INC  =   0.0000466616784 deg
+        VX =   0.4163523662708 km/sec         RAAN =   44.888293813772 deg
+        VY =  -5.1484437252578 km/sec         AOP  =   154.15447738631 deg
+        VZ =  -0.0000032104270 km/sec         TA   =   345.56302248892 deg
+                                              MA   =   345.59829159080 deg
+                                              EA   =   345.58066232052 deg
+
+        Spherical State                       Other Orbit Data
+        ---------------------------           --------------------------------
+        RMAG =   14958.024912896 km           Mean Motion        =   3.444906726e-04 deg/sec
+        RA   =  -175.39420631099 deg          Orbit Energy       =  -13.308021677276 km^2/s^2
+        DEC  =   0.0000301744429 deg          C3                 =  -26.616043354552 km^2/s^2
+        VMAG =   5.1652514057939 km/s         Semilatus Rectum   =   14975.923642348 km   
+        AZI  =   90.000035602520 deg          Angular Momentum   =   77261.955551942 km^2/s
+        VFPA =   90.017629283183 deg          Beta Angle         =  -23.000453912779 deg  
+        RAV  =  -85.376577027826 deg          Periapsis Altitude =   8579.3057057850 km   
+        DECV =  -0.0000356118030 deg          VelPeriapsis       =   5.1654524565136 km/s
+                                              VelApoapsis        =   5.1527031907901 km/s 
+                                              Orbit Period       =   18239.057850991 s    
+
+        Planetodetic Properties 
+        ---------------------------
+        LST       =   184.60580725308 deg
+        MHA       =   66.590723315728 deg
+        Latitude  =   0.0017891424855 deg
+        Longitude =   118.01508393735 deg
+        Altitude  =   8579.8886129163 km
+
+
+        Spacecraft Properties 
+        ------------------------------
+        Cd                    =   2.200000
+        Drag area             =   15.00000 m^2
+        Cr                    =   1.800000
+        Reflective (SRP) area =   1.000000 m^2
+        Dry mass              =   850.00000000000 kg
+        Total mass            =   850.00000000000 kg
+        SPADDragScaleFactor   =   1.000000
+        SPADSRPScaleFactor    =   1.000000
+

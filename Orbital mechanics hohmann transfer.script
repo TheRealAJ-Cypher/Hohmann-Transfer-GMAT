@@ -1,0 +1,226 @@
+%General Mission Analysis Tool(GMAT) Script
+%Created: 2026-03-04 01:04:04
+
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft LEO_Sat;
+LEO_Sat.DateFormat = TAIModJulian;
+LEO_Sat.Epoch = '21545';
+LEO_Sat.CoordinateSystem = EarthMJ2000Eq;
+LEO_Sat.DisplayStateType = Keplerian;
+LEO_Sat.SMA = 7000;
+LEO_Sat.ECC = 0;
+LEO_Sat.INC = 0;
+LEO_Sat.RAAN = 0;
+LEO_Sat.AOP = 0;
+LEO_Sat.TA = 0;
+LEO_Sat.DryMass = 850;
+LEO_Sat.Cd = 2.2;
+LEO_Sat.Cr = 1.8;
+LEO_Sat.DragArea = 15;
+LEO_Sat.SRPArea = 1;
+LEO_Sat.SPADDragScaleFactor = 1;
+LEO_Sat.SPADSRPScaleFactor = 1;
+LEO_Sat.AtmosDensityScaleFactor = 1;
+LEO_Sat.ExtendedMassPropertiesModel = 'None';
+LEO_Sat.NAIFId = -10003001;
+LEO_Sat.NAIFIdReferenceFrame = -9003001;
+LEO_Sat.OrbitColor = Red;
+LEO_Sat.TargetColor = Teal;
+LEO_Sat.OrbitErrorCovariance = [ 1e+70 0 0 0 0 0 ; 0 1e+70 0 0 0 0 ; 0 0 1e+70 0 0 0 ; 0 0 0 1e+70 0 0 ; 0 0 0 0 1e+70 0 ; 0 0 0 0 0 1e+70 ];
+LEO_Sat.CdSigma = 1e+70;
+LEO_Sat.CrSigma = 1e+70;
+LEO_Sat.Id = 'SatId';
+LEO_Sat.Attitude = CoordinateSystemFixed;
+LEO_Sat.SPADSRPInterpolationMethod = Bilinear;
+LEO_Sat.SPADSRPScaleFactorSigma = 1e+70;
+LEO_Sat.SPADDragInterpolationMethod = Bilinear;
+LEO_Sat.SPADDragScaleFactorSigma = 1e+70;
+LEO_Sat.AtmosDensityScaleFactorSigma = 1e+70;
+LEO_Sat.ModelFile = 'aura.3ds';
+LEO_Sat.ModelOffsetX = 0;
+LEO_Sat.ModelOffsetY = 0;
+LEO_Sat.ModelOffsetZ = 0;
+LEO_Sat.ModelRotationX = 0;
+LEO_Sat.ModelRotationY = 0;
+LEO_Sat.ModelRotationZ = 0;
+LEO_Sat.ModelScale = 1;
+LEO_Sat.AttitudeDisplayStateType = 'Quaternion';
+LEO_Sat.AttitudeRateDisplayStateType = 'AngularVelocity';
+LEO_Sat.AttitudeCoordinateSystem = EarthMJ2000Eq;
+LEO_Sat.EulerAngleSequence = '321';
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel DefaultProp_ForceModel;
+DefaultProp_ForceModel.CentralBody = Earth;
+DefaultProp_ForceModel.PrimaryBodies = {Earth};
+DefaultProp_ForceModel.Drag = None;
+DefaultProp_ForceModel.SRP = Off;
+DefaultProp_ForceModel.RelativisticCorrection = Off;
+DefaultProp_ForceModel.ErrorControl = RSSStep;
+DefaultProp_ForceModel.GravityField.Earth.Degree = 2;
+DefaultProp_ForceModel.GravityField.Earth.Order = 0;
+DefaultProp_ForceModel.GravityField.Earth.StmLimit = 100;
+DefaultProp_ForceModel.GravityField.Earth.PotentialFile = 'JGM2.cof';
+DefaultProp_ForceModel.GravityField.Earth.TideModel = 'None';
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator DefaultProp;
+DefaultProp.FM = DefaultProp_ForceModel;
+DefaultProp.Type = RungeKutta89;
+DefaultProp.InitialStepSize = 60;
+DefaultProp.Accuracy = 9.999999999999999e-12;
+DefaultProp.MinStep = 0.1;
+DefaultProp.MaxStep = 2700;
+DefaultProp.MaxStepAttempts = 50;
+DefaultProp.StopIfAccuracyIsViolated = true;
+
+%----------------------------------------
+%---------- Burns
+%----------------------------------------
+
+Create ImpulsiveBurn TransferBurn1;
+TransferBurn1.CoordinateSystem = Local;
+TransferBurn1.Origin = Earth;
+TransferBurn1.Axes = VNB;
+TransferBurn1.Element1 = 1.265;
+TransferBurn1.Element2 = 0;
+TransferBurn1.Element3 = 0;
+TransferBurn1.DecrementMass = false;
+TransferBurn1.Isp = 300;
+TransferBurn1.GravitationalAccel = 9.81;
+
+Create ImpulsiveBurn ImpulsiveBurn1;
+ImpulsiveBurn1.CoordinateSystem = Local;
+ImpulsiveBurn1.Origin = Earth;
+ImpulsiveBurn1.Axes = VNB;
+ImpulsiveBurn1.Element1 = 1.042;
+ImpulsiveBurn1.Element2 = 0;
+ImpulsiveBurn1.Element3 = 0;
+ImpulsiveBurn1.DecrementMass = false;
+ImpulsiveBurn1.Isp = 300;
+ImpulsiveBurn1.GravitationalAccel = 9.81;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create OrbitView DefaultOrbitView;
+DefaultOrbitView.SolverIterations = Current;
+DefaultOrbitView.UpperLeft = [ 0.003623188405797101 0 ];
+DefaultOrbitView.Size = [ 0.5956521739130435 0.4439324116743472 ];
+DefaultOrbitView.RelativeZOrder = 420;
+DefaultOrbitView.Maximized = true;
+DefaultOrbitView.Add = {LEO_Sat, Earth};
+DefaultOrbitView.CoordinateSystem = EarthMJ2000Eq;
+DefaultOrbitView.DrawObject = [ true true ];
+DefaultOrbitView.DataCollectFrequency = 1;
+DefaultOrbitView.UpdatePlotFrequency = 50;
+DefaultOrbitView.NumPointsToRedraw = 0;
+DefaultOrbitView.ShowPlot = true;
+DefaultOrbitView.MaxPlotPoints = 20000;
+DefaultOrbitView.ShowLabels = true;
+DefaultOrbitView.ViewPointReference = Earth;
+DefaultOrbitView.ViewPointVector = [ 30000 0 0 ];
+DefaultOrbitView.ViewDirection = Earth;
+DefaultOrbitView.ViewScaleFactor = 1;
+DefaultOrbitView.ViewUpCoordinateSystem = EarthMJ2000Eq;
+DefaultOrbitView.ViewUpAxis = Z;
+DefaultOrbitView.EclipticPlane = Off;
+DefaultOrbitView.XYPlane = On;
+DefaultOrbitView.WireFrame = Off;
+DefaultOrbitView.Axes = On;
+DefaultOrbitView.Grid = Off;
+DefaultOrbitView.SunLine = Off;
+DefaultOrbitView.UseInitialView = On;
+DefaultOrbitView.StarCount = 7000;
+DefaultOrbitView.EnableStars = On;
+DefaultOrbitView.EnableConstellations = On;
+
+Create GroundTrackPlot DefaultGroundTrackPlot;
+DefaultGroundTrackPlot.SolverIterations = Current;
+DefaultGroundTrackPlot.UpperLeft = [ 0.6152173913043478 0.1674347158218126 ];
+DefaultGroundTrackPlot.Size = [ 0.3398550724637681 0.4500768049155146 ];
+DefaultGroundTrackPlot.RelativeZOrder = 428;
+DefaultGroundTrackPlot.Maximized = true;
+DefaultGroundTrackPlot.Add = {LEO_Sat};
+DefaultGroundTrackPlot.DataCollectFrequency = 1;
+DefaultGroundTrackPlot.UpdatePlotFrequency = 50;
+DefaultGroundTrackPlot.NumPointsToRedraw = 0;
+DefaultGroundTrackPlot.ShowPlot = true;
+DefaultGroundTrackPlot.MaxPlotPoints = 20000;
+DefaultGroundTrackPlot.CentralBody = Earth;
+DefaultGroundTrackPlot.TextureMap = 'ModifiedBlueMarble.jpg';
+
+Create OrbitView OrbitView1;
+OrbitView1.SolverIterations = Current;
+OrbitView1.UpperLeft = [ -0.001449275362318841 0.4470046082949309 ];
+OrbitView1.Size = [ 0.6007246376811595 0.5314900153609831 ];
+OrbitView1.RelativeZOrder = 424;
+OrbitView1.Maximized = true;
+OrbitView1.Add = {LEO_Sat, Earth};
+OrbitView1.CoordinateSystem = EarthMJ2000Eq;
+OrbitView1.DrawObject = [ true true ];
+OrbitView1.DataCollectFrequency = 1;
+OrbitView1.UpdatePlotFrequency = 50;
+OrbitView1.NumPointsToRedraw = 0;
+OrbitView1.ShowPlot = true;
+OrbitView1.MaxPlotPoints = 20000;
+OrbitView1.ShowLabels = true;
+OrbitView1.ViewPointReference = Earth;
+OrbitView1.ViewPointVector = [ 0 0 30000 ];
+OrbitView1.ViewDirection = Earth;
+OrbitView1.ViewScaleFactor = 1;
+OrbitView1.ViewUpCoordinateSystem = EarthMJ2000Eq;
+OrbitView1.ViewUpAxis = Z;
+OrbitView1.EclipticPlane = Off;
+OrbitView1.XYPlane = On;
+OrbitView1.WireFrame = Off;
+OrbitView1.Axes = On;
+OrbitView1.Grid = Off;
+OrbitView1.SunLine = Off;
+OrbitView1.UseInitialView = On;
+OrbitView1.StarCount = 7000;
+OrbitView1.EnableStars = On;
+OrbitView1.EnableConstellations = On;
+
+Create ReportFile ReportFile1;
+ReportFile1.SolverIterations = Current;
+ReportFile1.UpperLeft = [ 0 0 ];
+ReportFile1.Size = [ 0 0 ];
+ReportFile1.RelativeZOrder = 0;
+ReportFile1.Maximized = false;
+ReportFile1.Filename = 'ReportFile1.txt';
+ReportFile1.Precision = 16;
+ReportFile1.Add = {LEO_Sat.A1ModJulian, LEO_Sat.EarthMJ2000Eq.X, LEO_Sat.Earth.ECC, LEO_Sat.Earth.TA};
+ReportFile1.WriteHeaders = true;
+ReportFile1.LeftJustify = On;
+ReportFile1.ZeroFill = Off;
+ReportFile1.FixedWidth = true;
+ReportFile1.Delimiter = ' ';
+ReportFile1.ColumnWidth = 23;
+ReportFile1.WriteReport = true;
+ReportFile1.AppendToExistingFile = false;
+
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+Propagate DefaultProp(LEO_Sat) {LEO_Sat.ElapsedSecs = 12000.0};
+Propagate DefaultProp(LEO_Sat) {LEO_Sat.ElapsedSecs = 0.01};
+Maneuver TransferBurn1(LEO_Sat);
+Propagate DefaultProp(LEO_Sat) {LEO_Sat.Earth.TA = 180};
+Maneuver ImpulsiveBurn1(LEO_Sat);
+Propagate DefaultProp(LEO_Sat) {LEO_Sat.ElapsedDays = 0.2};
+Report 'OrbitReport' ReportFile1 LEO_Sat.A1ModJulian LEO_Sat.Earth.ECC LEO_Sat.Earth.TA;
