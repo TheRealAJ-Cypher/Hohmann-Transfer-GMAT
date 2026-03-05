@@ -147,13 +147,15 @@ Possible extensions of this project:
 **Abhijay Gopal**
 
 Electrical & Electronics Engineer  
-Space & Sustainable Technology Researcher | AI & Cyber Security 
+Space & Sustainable Technology Researcher | AI & Cyber Security |
 IEEE MGA Mentor & Leader  
 
 Connect with me:
 
 LinkedIn: https://www.linkedin.com/in/abhijay-gopal-s-72241a1b7/ 
+
 Medium: https://medium.com/@abhijaygopal.s 
+
 GitHub: https://github.com/TheRealAJ-Cypher 
 
 ---
