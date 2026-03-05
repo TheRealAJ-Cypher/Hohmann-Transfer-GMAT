@@ -147,8 +147,7 @@ Possible extensions of this project:
 **Abhijay Gopal**
 
 Electrical & Electronics Engineer  
-Space & Sustainable Technology Researcher | AI & Cyber Security |
-
+Space & Sustainable Technology Researcher | AI & Cyber Security |  
 IEEE MGA Mentor & Leader  
 
 Connect with me:
