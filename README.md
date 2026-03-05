@@ -79,7 +79,7 @@ r₂ = final orbit radius
 
 ### Initial Orbit
 
-![Initial Orbit](Images/initial_leo_orbit.png)
+![Initial Orbit](Images/Initial_leo_orbit_view.png)
 
 ---
 
