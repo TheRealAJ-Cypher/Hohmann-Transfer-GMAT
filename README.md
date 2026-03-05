@@ -3,6 +3,14 @@ Simulation and validation of a two-impulse Hohmann transfer using NASA GMAT
 
 ![Mission Banner](Images/Hohmann_Transfer_Mission_architecture_banner.png)
 
+![GMAT](https://img.shields.io/badge/Simulation-GMAT-blue)
+![Orbital Mechanics](https://img.shields.io/badge/Field-Orbital%20Mechanics-purple)
+![Space Mission Design](https://img.shields.io/badge/Domain-Space%20Mission%20Design-black)
+![License](https://img.shields.io/badge/License-MIT-green)
+[![Medium Article](https://img.shields.io/badge/Read%20Full%20Article-Medium-orange)](https://medium.com/@abhijaygopal.s/orbital-mechanics-in-action-building-a-hohmann-transfer-from-scratch-2a346f21af46)
+
+# Orbital Mechanics in Action
+
 # Orbital Mechanics in Action  
 ## Hohmann Transfer Orbit Simulation using GMAT
 
