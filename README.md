@@ -91,7 +91,7 @@ r₂ = final orbit radius
 
 ### Final Orbit
 
-![Final Orbit](Images/final_orbit.png)
+![Final Orbit](Images/Final_circular_orbit_15000km.png)
 
 ---
 
@@ -148,6 +148,7 @@ Possible extensions of this project:
 
 Electrical & Electronics Engineer  
 Space & Sustainable Technology Researcher | AI & Cyber Security |
+
 IEEE MGA Mentor & Leader  
 
 Connect with me:
