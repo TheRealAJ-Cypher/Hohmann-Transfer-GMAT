@@ -95,9 +95,9 @@ r₂ = final orbit radius
 
 ---
 
-### Ground Track Visualization
+### Satellite Ground Track Visualization
 
-![Ground Track](Images/ground_track.png)
+![Ground Track](Images/satellite_groundtrack_plot.png)
 
 ---
 
