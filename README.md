@@ -85,7 +85,7 @@ r₂ = final orbit radius
 
 ### Transfer Orbit
 
-![Transfer Orbit](Images/transfer_ellipse.png)
+![Transfer Orbit](Images/hohmann_transfer_ellipse.png)
 
 ---
 
