@@ -102,7 +102,7 @@ r₂ = final orbit radius
 ---
 
 ## Repository Structure
-
+![Simulation Report with results](Images/Generated_Report_GMATSimulation.png)
 
 ---
 
