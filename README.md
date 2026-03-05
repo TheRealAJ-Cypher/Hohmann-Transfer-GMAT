@@ -11,7 +11,6 @@ Simulation and validation of a two-impulse Hohmann transfer using NASA GMAT
 
 # Orbital Mechanics in Action
 
-# Orbital Mechanics in Action  
 ## Hohmann Transfer Orbit Simulation using GMAT
 
 ![GMAT Orbit Simulation](Simulation_video/HohmannTransfer General Mission Analysis Tool GMAT OrbitView1.mp4) 
